@@ -3,21 +3,38 @@ import { createStore } from 'solid-js/store';
 
 import Todo from './Todo';
 
+const persistedState = (() => {
+  const persistedState = localStorage.getItem('state');
+  return persistedState
+    ? (JSON.parse(persistedState) as { todos: TodoElement[] })
+    : undefined;
+})();
+
 export interface TodoElement {
   title: string;
-  info: string;
+  description: string;
 }
 
-export const [todos, setTodos] = createStore([
-  { title: 'hello', info: 'world' },
-] as TodoElement[]);
+export const [state, setState] = createStore(
+  persistedState ?? {
+    todos: [] as TodoElement[],
+  }
+);
 
 const TodosWrapper: Component = () => {
   return (
-    <div class="m-auto w-[300px] text-center pt-6">
-      <For each={todos}>
-        {(todo) => <Todo title={todo.title} info={todo.info} />}
-      </For>
+    <div class="py-6 pl-6 pr-4">
+      <div class="flex flex-wrap gap-2 m-auto w-full text-center">
+        <For each={state.todos}>
+          {(todo, index) => (
+            <Todo
+              title={todo.title}
+              description={todo.description}
+              id={index}
+            />
+          )}
+        </For>
+      </div>
     </div>
   );
 };

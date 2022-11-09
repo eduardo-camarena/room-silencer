@@ -7,10 +7,7 @@ $ yarn install
 ### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
 
 ## Description
-This is the same old to-do app every engineer creates when they're learning a new framework,
-now because I'm not a begginer there are some quality of life improvements,
-for one there is probably a better design than most to-do apps (kind of, I'm not a great with designing UI, but I'm good at implementing them I sware),
-also the data will be saved to localstorage since I also plan on using this app on my day-to-day. Other than that it's the good'ol to-do app.
+This is the same old to-do app every engineer creates when they're learning a new framework, with some quality of life improvements, for one there is probably a better design than most to-do apps (kind of, I'm not a great with designing UI, but I'm good at implementing them I sware), also the data will be saved to localstorage since I also plan on using this app on my day-to-day. Other than that it's the good'ol to-do app.
 
 ## Available Scripts
 

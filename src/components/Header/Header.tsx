@@ -1,5 +1,7 @@
 import { Component } from 'solid-js';
 
+import { setState, state } from '../Todo/TodosWrapper';
+
 const Header: Component = () => {
   return (
     <header class="py-3 flex bg-indigo-800">
@@ -7,7 +9,11 @@ const Header: Component = () => {
       <div
         class="pr-5 z-30"
         onClick={() => {
-          console.log('hello');
+          setState('todos', [
+            ...state.todos,
+            { title: 'hello', description: 'world' },
+          ]);
+          localStorage.setItem('state', JSON.stringify(state));
         }}
       >
         +
